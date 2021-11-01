@@ -1,0 +1,31 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:no-watch": "ng test --wath=false"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "husky": "^7.0.4",
+  "hooks": {
+    "pre-commit": "npm run test:no-watch"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
