@@ -12,4 +12,6 @@ const sequelize = new Sequelize(
   }
 );
 
+// TODO: CONNECT TO JAWS DB 
+
 module.exports = sequelize;

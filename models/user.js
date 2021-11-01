@@ -8,12 +8,12 @@ class User extends Model {
   }
 }
 
-
+// TODO: Specify how data will go into database
 User.init({
     /*
-    *   TODO: Add Data 
+    *   TODO: Add Data [user]
     *   TODO: Add hooks
-    *   TODO: Add dependencies
+    *   TODO: Add dependencies [user.js file]
     */
     
     hooks: {
