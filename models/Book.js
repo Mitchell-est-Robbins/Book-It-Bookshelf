@@ -11,6 +11,10 @@ Book.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     author: {
       type: DataTypes.TEXT,
       allowNull: true,
@@ -22,18 +26,15 @@ Book.init(
         key: "id",
       },
     },
-    isbn: {
-      type: DataTypes.STRING,
+    comment: {
+      type: DataTypes.TEXT,
       allowNull: true,
-      validate: {
-        lens: [10,13],
-      },
     },
-    //stretch... string is for URL needed to get a picture
-    picture: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    }
+        //stretch... string is for URL needed to get a picture
+    // picture: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // }
   },
   {
     sequelize,
