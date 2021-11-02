@@ -1,14 +1,16 @@
-<h1>Sing up!</h1>
+<h1>Book it!</h1>
+
+<h2>Sign up!</h2>
 {{> signUp}}
 
-<h1>Login</h1>
+<h2>Login</h2>
 {{> login}}
 
-<h1>List of available Books.</h1>
+<h2>List of Books available.</h2>
 {{#if listExist}}
 <ul>
     {{#each suggestedCards}}
-    <li>{{this.type}}{{this.name}}</li>
+    <li> {{this.author}}, {{this.name}}</li>
     {{/each}}
 </ul>
 {{/if}}
