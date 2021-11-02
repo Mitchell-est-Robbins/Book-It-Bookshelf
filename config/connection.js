@@ -19,6 +19,4 @@ if (process.env.JAWSDB_URL) {
 }
 
 
-// TODO: CONNECT TO JAWS DB 
-
 module.exports = sequelize;

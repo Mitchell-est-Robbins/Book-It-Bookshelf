@@ -24,24 +24,24 @@ app.use(express.static('public'));
 const fakeApi = () => {
     return [
         {
-            name: 'Counter spell',
-            type: 'control'
+            name: 'When Squirrels attack!',
+            author: 'Chamo Smith'
         },
         {
-            name: 'Krenko, Mob boss',
-            type: 'aggro'
+            name: 'Too much hot sauce on my tacos.',
+            author: 'Mary Lou'
         },
         {
-            name: 'Doomblade',
-            type: 'control'
+            name: 'Who ate my pizza?!',
+            author: 'Mitchell'
         },
         {
-            name: 'Werewolf pack leader',
-            type: 'aggro'
+            name: "There's a monster under my bed.",
+            author: 'Ron'
         },
         {
-            name: 'Dissipate',
-            type: 'control'
+            name: '1 plus 1 equals green.',
+            author: 'Vince'
         }
     ]
 }
