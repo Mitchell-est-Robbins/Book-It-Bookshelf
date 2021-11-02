@@ -1,12 +1,9 @@
-const routesr= require('express').Router;
+const router = require('express').Router();
 
-const userRoutes = require('./userAuthRoutes.js.js');
-const PostRoutes = require('./postRoutes');
-const upVote = require('./upVoteRoutes');
+const apiRoutes = require('./api');
+const homeRoutes = require('./homeRoutes');
 
-eouter.use('user', userRoutes);
-eouter.use('post', postRoutes);
-eouter.use('uoVotes', upVoteRotues);
+router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
 
-module.export = router;
-
+module.exports = router;
