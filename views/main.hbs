@@ -1,0 +1,14 @@
+<h1>My Favorite Planeswalkers</h1>
+{{> favPlaneswalkers}}
+
+<h1>Most Hated Planeswalkers</h1>
+{{> hatedPlaneswalkers}}
+
+<h1>List of suggested cards by type</h1>
+{{#if listExist}}
+<ul>
+    {{#each suggestedCards}}
+    <li class={{this.type}}>{{this.name}}</li>
+    {{/each}}
+</ul>
+{{/if}}
