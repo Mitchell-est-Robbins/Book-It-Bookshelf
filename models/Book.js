@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-
-class Post extends Model {}
-
-Post.init(
+//Extending Model to represent books in the database
+class Book extends Model {}
+//Defining book with its attributes (id, post_content, user_id, date_created, and likes)
+Book.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,10 +12,10 @@ Post.init(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    post_content: {
+    author: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
@@ -26,18 +26,22 @@ Post.init(
         key: "id",
       },
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+    comment: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
+        //stretch... string is for URL needed to get a picture
+    // picture: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "post",
+    modelName: "book",
   }
 );
 
-module.exports = Post;
+module.exports = Book;

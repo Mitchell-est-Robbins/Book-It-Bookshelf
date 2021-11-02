@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:no-watch": "ng test --wath=false"
+    "test:no-watch": "ng test --wath=false",
+    "seed": "node seeds/seed.js"
   },
   "author": "",
   "license": "ISC",
