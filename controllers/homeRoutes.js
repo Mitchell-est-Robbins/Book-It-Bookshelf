@@ -83,15 +83,31 @@ router.get('/profile', withAuth, async (req, res) => {
 //==================================================================
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile'); //----------library?
-    return;
-  }
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile'); //----------library?
+  //   return;
+  // }
 
   res.render('login'); //if not show the login handlebar
 });
 
 
+router.get('/welcome', (req, res) => {
+  res.render('welcome'); //if not show the login handlebar
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup'); //if not show the login handlebar
+});
+
+router.get('/addBook', (req, res) => {
+  res.render('addBook'); //if not show the login handlebar
+});
+
+router.get('/myLibrary', (req, res) => {
+  const library = [{}, {}, {}, {}, {}, {}, {}, {}]
+  res.render('myLibrary', library); //if not show the login handlebar
+});
 
 //-----------handled elsewhere
 // router.post('/', async (req, res) => {
