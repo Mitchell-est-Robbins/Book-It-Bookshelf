@@ -1,9 +1,14 @@
 const express = require('express');
+const handlebars = require('express-handlebars');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const User = require('./models/user');
 const app = express();
 const port = 3000;
 const list = true;
 
-const handlebars = require('express-handlebars');
 
 
 app.set('view engine', 'hbs');
@@ -16,8 +21,122 @@ app.engine('hbs', handlebars({
     partialsDir: `${__dirname}/views/partials`
 }));
 
-app.use(express.static('public'));
+app.use(express.static('/public'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+
+// app.use(session({
+//     key: 'user_sid',
+//     secret: 'somesecret',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie:{
+//         expires: 600000
+//     }
+// }));
+
+
+app.use((req, res, next) => {
+    if (req.cookie.user_sid && !req.session.user){
+        res.clearCookie('user_sid');
+    }
+    next();
+});
+
+const hbsContent = {userName: '', loggedin: false, title: "You are not logged in.", body: "Refresh the Page."};
+
+// middleware fucntion to check for logged in users
+
+const sessionChecker = (req, res, next) => {
+    if (req.session.user && req.cookie.user_sid){
+        res.redirect('/dashboard');
+    }else{
+        next();
+    }
+};
+
+// route for Home-Page
+app.get('/', sessionChecker, (req, res) =>{
+    res.redirect('/login');
+});
+
+
+// route for signup-Page
+app.route('/signup')
+    .get((req, res) =>{
+        // res.sendFile(__dirname + '/public/signup.html');
+        res.render('signup', hbsContent);
+    })
+    .post((req, res) =>{
+        User.create({
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(user =>{
+            req.session.user = user.dataValues;
+            res.redirect('/signup');
+        });
+    });
+
+
+// route for user login
+app.route('/login')
+    .get((req, res) =>{
+        // res.sendFile(__dirname + '/public/login.html');
+        res.render('login', hbsContent);
+    })
+    .post((req, res) =>{
+        const username = req.body.username;
+        const password = req.body.password;
+
+        User.findOne({ where: { username: username } }).then(function(user) {
+            if (!user) {
+                res.redirect('/login');
+            } else if (!user.validPassword(password)) {
+                res.redirect('/login');
+            } else {
+                req.session.user = user.dataValues;
+                res.redirect('/dashboard');
+            }
+        });
+    });
+
+
+// route for user's dashboard
+app.get('/dashboard', (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        hbsContent.loggedin = true;
+        hbsContent.userName = req.session.user.username;
+        hbsContent.title = "You are logged in."
+        // res.sendFile(__dirname + '/public/dashboard.html);
+        res.render('index', hbsContent);
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+
+// route for user logout
+app.get('/logout', (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        hbsContent.loggedin = false;
+        hbsContent.title = "You are logged out."
+        res.clearCookie('user_sid');
+        res.redirect('/');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+
+// route for handling 404 errors
+app.use(function (req, res, next) {
+    res.status(404).send("Not found!")
+});
 
 
 
@@ -47,12 +166,9 @@ const fakeApi = () => {
 }
 
 
-
-
 app.get('/', (req, res) => {
     res.render('main', {layout: 'index', suggestedCards: fakeApi(), listExist: list});
 });
-
 
 app.listen(port, () => {
     console.log(`App listening to port ${port}`);
