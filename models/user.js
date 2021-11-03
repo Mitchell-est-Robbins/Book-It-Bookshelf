@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 //Extending Model to represent user in the database
 //Using 
@@ -17,7 +17,7 @@ User.init(
       primaryKey: true,
       allowNull: false,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -42,13 +42,10 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.email = await newUserData.email.toAllLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
-
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.email = await newUserData.email.toAllLowerCase();
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       },
@@ -57,7 +54,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 
