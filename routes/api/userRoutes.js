@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User } = require('../../models');
 
 /*
 router.get( /welcome•, (req, res) {
@@ -121,4 +121,4 @@ router.post('/login', async (req, res) => {
 //   }
 // });
 
-// module.exports = router;
+module.exports = router;
