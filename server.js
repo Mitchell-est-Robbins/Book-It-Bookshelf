@@ -5,10 +5,9 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3001;
 
-const sequelize = require('./config/config');
-const { ENGINE_METHOD_CIPHERS } = require('constants');
+const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -16,17 +15,12 @@ const sess = {
   cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new SequalizeStore({
+  store: new SequelizeStore({
     db: sequelize
   })
 };
 
-
-// PUT
-app.use();
-app.use();
-
-app.engine('handlebars, hbs.engine')
+app.engine('handlebars', 'hbs.engine')
 app.set('view engine', 'handlebars')
 
 
@@ -40,6 +34,6 @@ app.listen(PORT, () => {
   sequelize.sync({ force: false });
 });
 
-app.listen(PORT, () => {
-  console.log(`App listening on PORT ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`App listening on PORT ${PORT}`);
+// });
