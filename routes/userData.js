@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const router = require('express').Router();
-const { User } = require('../../../models');
+const { User } = require('../models');
 
 
 /** ADD NEW USER  */
@@ -23,7 +22,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+module.exports = router;
 
 // router.post('/login', async (req, res) => {
 //   try {
@@ -66,5 +65,3 @@ router.post('/', async (req, res) => {
 //     res.status(404).end();
 //   }
 // });
-
-// module.exports = router;

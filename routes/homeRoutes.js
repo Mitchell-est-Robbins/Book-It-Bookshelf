@@ -5,29 +5,29 @@ const withAuth = require('../utils/auth');
 
 // ====connecting the user to their library=======================================================================
 router.get('/', async (req, res) => {
-  try {
-    // Get all books and JOIN with user data
-    const bookData = await Book.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+  // try {
+  //   // Get all books and JOIN with user data
+  //   const bookData = await Book.findAll({
+  //     // include: [
+  //     //   {
+  //     //     model: User,
+  //     //     attributes: ['name'],
+  //     //   },
+  //     // ],
+  //   });
 
     // Serialize data so the template can read it
-    const books = bookData.map((book) => book.get({ plain: true }));
+    // const books = bookData.map((book) => book.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     //--------------change this to whatever the mainpage template is called
-    res.render('main', { 
-      books, 
-      logged_in: req.session.logged_in 
+    res.render('login', { 
+      // books, 
+      // logged_in: req.session.logged_in 
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 
@@ -150,7 +150,7 @@ router.get('/myLibrary', (req, res) => {
 //     req.session.save(() => {
 //       req.session.user_id = userData.id;
 //       req.session.logged_in = true;
-      
+
 //       res.json({ user: userData, message: 'You are now logged in!' });
 //     });
 
