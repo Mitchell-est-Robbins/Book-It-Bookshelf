@@ -1,0 +1,48 @@
+{{!-- <h1>Book it!</h1>
+
+<h2>Sign up!</h2>
+{{> signUp}}
+
+<h2>Login</h2>
+{{> login}}
+
+<h2>List of Books available.</h2>
+{{#if listExist}}
+<ul>
+    {{#each suggestedCards}}
+    <li> {{this.author}}, {{this.name}}</li>
+    {{/each}}
+</ul>
+{{/if}} --}}
+
+
+<div class="col s12 m7">
+    <div class="card horizontal">
+      <div id="card-image" class="card-image">
+        <img style="width: 400px;" src="/images/booksLanding.jpg" alt="Book Shelf">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h1>Book it!</h1>
+
+<h2>Sign up!</h2>
+{{> signUp}}
+
+<h2>Login</h2>
+{{> login}}
+
+<h2>List of Books available.</h2>
+{{#if listExist}}
+<ul>
+    {{#each suggestedCards}}
+    <li> {{this.author}}, {{this.name}}</li>
+    {{/each}}
+</ul>
+{{/if}}
+        </div>
+        <div class="card-action">
+          {{!-- <a href="#">This is a link</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
