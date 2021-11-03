@@ -6,8 +6,31 @@ const sequelize = require('./sequelize/config');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.engine('handlebars, hbs.engine')
+const sequelize = require('./config/connection');
+// const { ENGINE_METHOD_CIPHERS } = require('constants');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const hbs = exphbs.create({helpers})
+
+const sess = {
+  secret: 'secretCode',
+  cookie: {
+    expires: 600000
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+
+// PUT
+// app.use();
+// app.use();
+
+app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
 
@@ -20,6 +43,7 @@ app.use(require('routes'))
 app.get('/', (req, res) => {
   res.send(path.join(_dirname,'/views/index.html'))
 });
+
 
 app.get('/books', (req, res) =>
   res.sendFile(path.join(_dirname,'/views/index.html')

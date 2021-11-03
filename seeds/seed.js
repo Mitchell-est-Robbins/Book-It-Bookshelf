@@ -13,8 +13,7 @@ const seedDatabase = async () => {
   });
 
   const books = await Book.bulkCreate(bookData, {
-    individualHooks: true,
-    returning: true,
+
   })
 
   process.exit(0);
