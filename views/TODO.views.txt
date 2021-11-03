@@ -1,6 +1,0 @@
-//TODO: Dir Structure
-
-// TODO: landing, login, forum, library
-
-// DOTENV: 
-
