@@ -128,7 +128,7 @@ app.get('/dashboard', (req, res) => {
         hbsContent.userName = req.session.user.username;
         hbsContent.title = "You are logged in."
         // res.sendFile(__dirname + '/public/dashboard.html);
-        res.render('index', hbsContent);
+        res.render('main', hbsContent);
     } else {
         res.redirect('/login');
     }
