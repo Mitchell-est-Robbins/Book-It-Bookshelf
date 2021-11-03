@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+const { Books, DataTypes } = require('sequelize');
+// const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 //Extending Model to represent user in the database
 //Using 
@@ -37,8 +37,6 @@ User.init(
       },
     },
   },
-  //activity 13-17
-  //In controllers/api/userRoutes.js sequelize allows us to connect to these hooks whenever we 
   {
     hooks: {
       beforeCreate: async (newUserData) => {
