@@ -37,18 +37,19 @@ User.init(
       },
     },
   },
+  //activity 13-17
+  //In controllers/api/userRoutes.js sequelize allows us to connect to these hooks whenever we 
   {
     hooks: {
       beforeCreate: async (newUserData) => {
+        newUserData.email = await newUserData.email.toAllLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
 
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
+        updatedUserData.email = await newUserData.email.toAllLowerCase();
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       },
     },
