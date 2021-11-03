@@ -1,8 +1,9 @@
-const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const helpers = require('./utils/helpers');
+const seshStore = require('connect-session-sequelize')(session.Store);
+const sequelize = require('./sequelize/config');
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,15 +35,24 @@ app.set('view engine', 'handlebars')
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(require('localhost:3000/'));
+app.use(require('./books')
+// app.use(session(sess));
+app.use(require('routes'))
 
-app.use(require('./controllers'));
-
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
-  sequelize.sync({ force: false });
+app.get('/', (req, res) => {
+  res.send(path.join(_dirname,'/views/index.html'))
 });
 
-// app.listen(PORT, () => {
-//   console.log(`App listening on PORT ${PORT}`);
-// });
+
+app.get('/books', (req, res) =>
+  res.sendFile(path.join(_dirname,'/views/index.html')
+);
+
+app.use(express.static(path.join(__dirname, 'view/')));
+
+
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  sequelize.sync({ force: false });
+}); 
