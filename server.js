@@ -13,11 +13,11 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
   secret: 'secretCode',
-  cookie{},
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequalizeStore({
-    db: // TODO
+    db: sequelize
   })
 };
 
@@ -39,36 +39,6 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
   sequelize.sync({ force: false });
 });
-
-
-
-----
-
-
-app.get('/', (req, res) => res.send('Welcome to the Star Wars Page!'));
-
-// Displays all characters
-app.get('/api/characters', (req, res) => res.json(characters));
-
-// Displays a single character, or shows "No character found"
-app.get('/api/characters/:character', (req, res) => {
-  // Grab the selected parameter
-  const chosen = req.params.character;
-  console.log(chosen);
-
-  // Check each character routeName and see if the same as "chosen"
-  for (let i = 0; i < characters.length; i++) {
-    // If the statement is true, send the character back as JSON,
-    if (chosen === characters[i].routeName) {
-      return res.json(characters[i]);
-    }
-  }
-
-  // otherwise send back "false"
-  return res.json(false);
-});
-
-// Listener
 
 app.listen(PORT, () => {
   console.log(`App listening on PORT ${PORT}`);
