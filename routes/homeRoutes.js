@@ -33,51 +33,51 @@ router.get('/', async (req, res) => {
 
 // ====pulling up the books and adding them to template========================================================
 //  ---------change this to that same handlebar as below
-router.get('/project/:id', async (req, res) => {
-  try {
-    const bookData = await Book.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// router.get('/project/:id', async (req, res) => {
+//   try {
+//     const bookData = await Book.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
 
-    const book = bookData.get({ plain: true });
-// -------------------whatever the handlebar is called for the partial where books are
-    res.render('project', {
-      ...book,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const book = bookData.get({ plain: true });
+// // -------------------whatever the handlebar is called for the partial where books are
+//     res.render('project', {
+//       ...book,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 //may not be needed---------
 // ===========this prevents people moding a library without access=======================================================
 // Use withAuth middleware to prevent access to route
 
 // ----------going to this place
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
+// router.get('/myLibrary', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Project }],
+//     });
 
-    const user = userData.get({ plain: true });
-//------------------show the handlebar associated with this
-    res.render('profile', { //-----------library?
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const user = userData.get({ plain: true });
+// //------------------show the handlebar associated with this
+//     res.render('profile', { //-----------library?
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 //==================================================================
@@ -92,9 +92,9 @@ router.get('/login', (req, res) => {
 });
 
 
-router.get('/welcome', (req, res) => {
-  res.render('welcome'); //if not show the login handlebar
-});
+// router.get('/welcome', (req, res) => {
+//   res.render('welcome'); //if not show the login handlebar
+// });
 
 router.get('/signup', (req, res) => {
   res.render('signup'); //if not show the login handlebar

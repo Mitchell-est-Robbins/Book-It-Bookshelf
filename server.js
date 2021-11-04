@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create({helpers})
@@ -27,7 +31,10 @@ const sess = {
     db: sequelize
   })
 };
+
+
 app.use(session(sess))
+
 app.use(routes)
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')

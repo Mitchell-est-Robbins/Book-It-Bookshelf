@@ -1,12 +1,36 @@
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <form action="/signup" method="post">
+            <div>
+                <label>Title:</label>
+                <input id="ttl" type="text" name="title"/>
+            </div>
+            <div>
+                <label>Author:</label>
+                <input id="authr" type="text" name="author"/>
+            </div>    
+            <div>
+                <label>Comments:</label>
+                <input id="comnts" type="text" name="comments"/>
+            </div>
+            <div>
+                <input id="addBtn" class="btn btn-primary" type="submit" value="Add book!"/>
+            </div>
+        </form>                  
+    </div>          
+</div>
+
+
+
 <div>
 {{#if length}}
   <div class="col-md-6 project-list">
-    <h3>My library:</h3>
+    <h1>My library:</h1>
     {{#each library as |book|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h1>{{book.title}}</h1>
-        <h4>{{book.author}}</h4>
+        <h4>{{book.title}}</h4>
+        <p>{{book.author}}</p>
         <p>{{book.comment}}</p>
       </div>
       <div class="col-md-4">
