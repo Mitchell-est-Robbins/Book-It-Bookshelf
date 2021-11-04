@@ -1,21 +1,23 @@
 <div class="container row">
             <div class="jumbotron col-sm-4 pull-center">
-                <form action="/signup" method="post">
+                <form class="signup-form" action="/signup" method="post">
                     <div>
                         <label>Username:</label>
-                        <input type="text" name="username"/>
+                        <input type="text" name="name" id="name-signup"/>
                     </div>
                     <div>
-                        <label>Email :</label>
-                        <input type="text" name="email"/>
+                        <label>Email:</label>
+                        <input type="text" name="email" id="email-signup"/>
                     </div>    
                     <div>
                         <label>Password:</label>
-                        <input type="password" name="password"/>
+                        <input type="password" name="password" id="password-signup"/>
                     </div>
                     <div>
-                        <input class="btn btn-primary" type="submit" value="Sign Up"/>
+                        <button class="btn btn-primary" type="submit" class="signup-form"/>Sign Up</button>
                     </div>
+                     <a href="/">Login!</a>
                 </form>                  
             </div>          
         </div>
+        <script src="/js/signup.js"></script>
