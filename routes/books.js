@@ -28,7 +28,7 @@ router.delete('/books/:id', (req, res) => {
     .removeNote(req.params.id)
     .then(() => res.json({ ok: true }))
     .catch((err) => res.status(500).json(err));
-}
+});
 
 // module.exports = router;
 app.post('/', function (req, res) {

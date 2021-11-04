@@ -105,8 +105,26 @@ router.get('/addBook', (req, res) => {
 });
 
 router.get('/myLibrary', (req, res) => {
-  const library = [{}, {}, {}, {}, {}, {}, {}, {}]
-  res.render('myLibrary', library); //if not show the login handlebar
+  const library = [{
+    title: "Ender's Game",
+    author: "Orson Scott Card",
+    comment: "That kid had to be messed up in the head."
+  },
+  {
+    title: "Dune",
+    author: "Frank Herbert",
+    comment: "I need to read this one still."
+  },
+  {
+    title: "The Hobbit, or There and Back Again",
+    author: "J. R. R. Tolkien",
+    comment: "Soooo long, but worth it."
+  }]
+
+const length = library.length;
+
+
+  res.render('myLibrary', {library: library, length: length}); //if not show the login handlebar
 });
 
 //-----------handled elsewhere
