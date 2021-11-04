@@ -1,0 +1,99 @@
+/* html {
+    position: relative;
+    min-height: 100%;
+  } */
+body {
+    background-image: url(../images/signup-background.png);
+}
+
+#title {
+    margin-left: 35px;
+
+}
+#navSelections {
+    margin-right: 35px;
+}
+  
+#footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;  
+    color:white; 
+    
+   
+} 
+nav {
+    background-color: #26A69A;
+}
+.signupForm {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: white;
+  }
+  .signupForm .formHeading,
+  .signupForm .checkbox {
+    margin-bottom: 10px;
+  }
+  .formHeading{
+    text-align: center;
+  }
+  .signupForm .checkbox {
+    font-weight: normal;
+  }
+  .signupForm .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .signupForm .form-control:focus {
+    z-index: 2;
+  }
+  .signupForm input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .signupForm input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .title {
+    text-align: center;
+  }
+  
+  .signup-label {
+  margin-top: 5px;
+  }
+  
+  
+  .signup-password{
+    margin-bottom: 5px;
+  }
+  
+  .jumbotron {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 60px;
+      padding-left: 60px;
+      background: rgba(238, 238, 238, 0.8);
+  }
+
+  #btn {
+      margin-left: 32%
+  }
+
+  .btn2 {
+      margin-left: 35%;
+      margin-top: 7px;
+  }
+.container {
+    padding: 75px;
+}
