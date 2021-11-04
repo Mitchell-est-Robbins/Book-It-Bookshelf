@@ -43,7 +43,7 @@ const delButtonHandler = async (event) => {
   
   document
     .querySelector('.new-project-form')          //---------------we need a name
-    .addEventListener('submit', newFormHandler); //for adding new book
+    .addEventListener('click', newFormHandler); //for adding new book
   
   document
     .querySelector('.project-list')              //-----same ------?

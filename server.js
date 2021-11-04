@@ -10,6 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 3005;
 
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 const sequelize = require('./config/connection');
 // const { ENGINE_METHOD_CIPHERS } = require('constants');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -26,6 +30,9 @@ const sess = {
     db: sequelize
   })
 };
+
+
+app.use(session(sess))
 
 app.use(routes)
 app.engine('handlebars', hbs.engine)
