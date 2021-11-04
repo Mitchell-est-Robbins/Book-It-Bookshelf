@@ -1,0 +1,21 @@
+<div>
+{{#if length}}
+  <div class="col-md-6 project-list">
+    <h3>My library:</h3>
+    {{#each library as |book|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h1>{{book.title}}</h1>
+        <h4>{{book.author}}</h4>
+        <p>{{book.comment}}</p>
+      </div>
+      <div class="col-md-4">
+        <button id="dltBtn" class="btn btn-sm btn-danger" data-id="{{book.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+
