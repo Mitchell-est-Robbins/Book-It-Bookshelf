@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book It</title>
+    <title>Book It!</title>
     <!-- Compiled and minified Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<!-- Google Materalize fonts -->
+    <!-- Google Materalize fonts -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-
   <nav>
-    <div class="nav-wrapper">
-{{!-- <i class="material-icons">library_books</i> --}}
-      <a href="logo" class="brand-logo"> Book It!</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        {{!-- <li><a href="/addBook">Add Book</a></li> --}}
+    <div>
+      <a id="title" href="logo" class="brand-logo"> <i class="material-icons">library_books</i>Book It!</a>
+      <ul id="navSelections" class="right hide-on-med-and-down">
+        <li><a href="/addBook">Add Book</a></li>
         <li><a href="/myLibrary">Personal Library</a></li>
-        <li><a href="/logOut">Log Out</a></li>
+        <li><a href="" id="logoutBtn">Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -33,25 +30,29 @@
 
   {{{ body }}}
 
-
 <br>
 
-<footer class="footer">
-    <div class="footer-copyright">
-    <div class="container"> © 2021 |
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+
+
+
+<footer id="footer">
+ <div id="page-container">
+   <div id="content-wrap">
+     <div class="container"> © 2021 |
         <a href="https://github.com/mlh19" target="_blank"> Mary Lou Hoover | </a>
         <a href="https://github.com/YamCham0" target="_blank"> Chamo | </a>
         <a href="https://github.com/VookmirVookmir" target="_blank"> Mitchell Robbins | </a>
         <a href="https://github.com/sitmeister" target="_blank"> Ron Sit | </a>
         <a href="https://github.com/vsulliv" target="_blank"> Vincent Sullivan  </a>
-    </div>
-    </div>
-</footer>
+   </div>
+   </footer>
+
+
 
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/logout.js"></script>
 
 </body>
 </html>

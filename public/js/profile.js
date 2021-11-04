@@ -6,20 +6,28 @@ const newFormHandler = async (event) => {
     const inputComment = document.querySelector('#inputComment').value.trim();
     const inputAuthor = document.querySelector('#inputAuthor').value.trim();
 
+    console.log(inputTitle, inputComment, inputAuthor);
     if (inputTitle && inputComment && inputAuthor) {
-        const response = await fetch(`/api/books`, { //-------this location needs to be figured out
+       fetch('/api/books/', { //-------this location needs to be figured out
             method: 'POST',
-            body: JSON.stringify({ inputTitle, inputComment, inputAuthor }),
+            body: JSON.stringify({ title:inputTitle, author:inputAuthor, comment:inputComment  }),
             headers: {
                 'Content-Type': 'application/json',
-            },
-        });
+            }
+        }).then(response =>{
+            console.log(response)
+            if (response.ok) {
+                return response.json()
+                // document.location.replace('/myLibrary');//-----------what does this do
+            } else {
+                alert('Failed to create book');
+            } 
+        }).then(book =>{
+            console.log(book)
+        }).catch( err => {
+            console.log(err)
+        })
 
-        if (response.ok) {
-            document.location.replace('/profile');//-----------what does this do
-        } else {
-            alert('Failed to create book');
-        }
     }
 };
 
@@ -42,10 +50,10 @@ const delButtonHandler = async (event) => {
 };
   
   document
-    .querySelector('.new-project-form')          //---------------we need a name
+    .querySelector('#addBtn')          //---------------we need a name
     .addEventListener('click', newFormHandler); //for adding new book
   
   document
-    .querySelector('.project-list')              //-----same ------?
+    .querySelector('#dltBtn')              //-----same ------?
     .addEventListener('click', delButtonHandler);
   
