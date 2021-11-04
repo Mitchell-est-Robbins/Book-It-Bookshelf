@@ -1,77 +1,27 @@
-<div class="container row">
-            <div class="jumbotron col-sm-4 pull-center">
-                <form class="signup-form">
-                    <div>
-                        <p>Sign up!</p>
-                    </div>
-                    <div>
-                        <label>Username:</label>
-                        <input id="name-signup" type="text" name="username"/>
-                    </div>
-                    <div>
-                        <label>Email :</label>
-                        <input id="email-signup" type="text" name="email"/>
-                    </div>    
-                    <div>
-                        <label>Password:</label>
-                        <input id="password-signup" type="password" name="password"/>
-                    </div>
-                    <div>
-                        <input id="signupbtn" class="btn btn-primary btn2" type="button" value="Sign Up"/>
-                    </div>
-                    <a href="/">already a member?</a>
-                </form> 
-            </div>          
-        </div>
-
-<script src="./js/login.js"></script>
-        {{!-- action="/signup" method="post" --}}
-{{!-- <div class="row col ">
-  <div class="col s7">
-    <img src="/images/books.jpg" alt="Bookshelf" />
-  </div>
-  <div id="signup" class="col s5">
-    <form action="/signup" method="post">
-      <div>
-        <input placeholder="Username" name="username"/>
-      </div>
-      <div>
-        <input placeholder="E-mail" name="email"/>
-      </div>
-      <div>
-        <input placeholder="Password" name="password"/>
-      </div>
-      <div>
-        <input class="btn btn-primary" type="submit" value="Sign Up" />
-      </div>
-    </form>
-  </div>  --}}
-
-
-
-  {{!-- <div class = "container">
+<div class = "container">
     <div class="jumbotron">
       <h1 class ="title">Welcome to Book It!</h1>
 	 <form class ="signupForm" id="signin" name="signin" method="post" action="signin">
 		<h3 class="formHeading">Sign Up</h2>
          <div>
-        <input placeholder="Username" name="username"/>
+        <input id="name-signup" type="text" "Username" name="username"/>
       </div>
       <div>
-        <input placeholder="E-mail" name="email"/>
+        <input id="email-signup" type="text" placeholder="E-mail" name="email"/>
       </div>
       <div>
-        <input placeholder="Password" name="password"/>
+        <input id="password-signup" type="text" placeholder="Password" name="password"/>
       </div>
       <div>
-        <input id="btn" class="btn btn-primary" type="submit" value="Sign Up" />
+        <input btid="signupbtn" class="btn btn-primary" type="submit" value="Sign Up" />
       </div>
       <div>
-        <input id="btn2" class="btn btn-primary" type="submit" value="Login" />
+        <input  class="btn btn-primary" type="submit" value="Login" />
       </div>
-      {{!-- <div>
-          <a id="login" href="/">Login</a>
-      </div> --}}
+    <a href="/">Already a Member?</a>
     </form>
   </div>
-</div> --}}
+</div>
+
+    
+<script src="./js/login.js"></script>
