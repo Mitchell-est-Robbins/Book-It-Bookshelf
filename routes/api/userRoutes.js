@@ -20,8 +20,9 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log(req.body)
   try {
-    const userData = await User.findOne({ where: { email: REQUIREEMTS } });
+    const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
       res
@@ -32,7 +33,7 @@ router.post('/login', async (req, res) => {
 
 
     const validPassword = await userData.checkPassword(req.body.password);
-
+    console.log(validPassword)
     if (!validPassword) {
       res
         .status(400)

@@ -1,20 +1,20 @@
 <div class="container row">
     <div class="jumbotron col-sm-4 pull-center">
-        <form action="/signup" method="post">
+        <form >
             <div>
                 <label>Title:</label>
-                <input id="ttl" type="text" name="title"/>
+                <input id="inputTitle" type="text" name="title"/>
             </div>
             <div>
                 <label>Author:</label>
-                <input id="authr" type="text" name="author"/>
+                <input id="inputAuthor" type="text" name="author"/>
             </div>    
             <div>
                 <label>Comments:</label>
-                <input id="comnts" type="text" name="comments"/>
+                <input id="inputComment" type="text" name="comments"/>
             </div>
             <div>
-                <input id="addBtn" class="btn btn-primary" type="submit" value="Add book!"/>
+                <input id="addBtn" class="btn btn-primary" type="button" value="Add book!"/>
             </div>
         </form>                  
     </div>          
@@ -42,4 +42,4 @@
   {{/if}}
 </div>
 
-
+<script src="./js/profile.js"></script>
