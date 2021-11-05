@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const User = require('./User');
+const User = require('./user');
 const Book = require('./Book');
 
 

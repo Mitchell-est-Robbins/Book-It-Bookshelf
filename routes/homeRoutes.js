@@ -4,31 +4,36 @@ const withAuth = require('../utils/auth');
 
 
 // ====connecting the user to their library=======================================================================
-router.get('/', async (req, res) => {
+// router.get('/myLibrary', async (req, res) => {
   // try {
   //   // Get all books and JOIN with user data
   //   const bookData = await Book.findAll({
-  //     // include: [
-  //     //   {
-  //     //     model: User,
-  //     //     attributes: ['name'],
-  //     //   },
-  //     // ],
-  //   });
+  //     where: { user_id: req.session.user_id }})
+  //     const books = bookData.map((book) => book.get({ plain: true }));
+  //   console.log(books)
+  
+//     const library = [{
+//       title: "Ender's Game",
+//       author: "Orson Scott Card",
+//       comment: "That kid had to be messed up in the head."
+//     },
+//     {
+//       title: "Dune",
+//       author: "Frank Herbert",
+//       comment: "I need to read this one still."
+//     },
+//     {
+//       title: "The Hobbit, or There and Back Again",
+//       author: "J. R. R. Tolkien",
+//       comment: "Soooo long, but worth it."
+//     }]
 
-    // Serialize data so the template can read it
-    // const books = bookData.map((book) => book.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    //--------------change this to whatever the mainpage template is called
-    res.render('login', { 
-      // books, 
-      // logged_in: req.session.logged_in 
-    });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
-});
+//     res.render('myLibrary', library )
+//       // books, 
+//       // logged_in: req.session.logged_in 
+//     // });
+ 
+// });
 
 
 // ====pulling up the books and adding them to template========================================================
@@ -81,12 +86,11 @@ router.get('/', async (req, res) => {
 
 
 //==================================================================
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  // if (req.session.logged_in) {
-  //   res.redirect('/profile'); //----------library?
-  //   return;
-  // }
+router.get('/', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/login'); //----------library?
+    return;
+  }
 
   res.render('login'); //if not show the login handlebar
 });
@@ -104,27 +108,36 @@ router.get('/addBook', (req, res) => {
   res.render('addBook'); //if not show the login handlebar
 });
 
-router.get('/myLibrary', (req, res) => {
-  const library = [{
-    title: "Ender's Game",
-    author: "Orson Scott Card",
-    comment: "That kid had to be messed up in the head."
-  },
-  {
-    title: "Dune",
-    author: "Frank Herbert",
-    comment: "I need to read this one still."
-  },
-  {
-    title: "The Hobbit, or There and Back Again",
-    author: "J. R. R. Tolkien",
-    comment: "Soooo long, but worth it."
-  }]
+router.get('/myLibrary',async (req, res) => {
+  try {
+    // Get all books and JOIN with user data
+    const bookData = await Book.findAll({
+      where: { user_id: req.session.user_id }})
+      const books = bookData.map((book) => book.get({ plain: true }));
+    console.log(books)
+  
+  // const library = [{
+  //   title: "Ender's Game",
+  //   author: "Orson Scott Card",
+  //   comment: "That kid had to be messed up in the head."
+  // },
+  // {
+  //   title: "Dune",
+  //   author: "Frank Herbert",
+  //   comment: "I need to read this one still."
+  // },
+  // {
+  //   title: "The Hobbit, or There and Back Again",
+  //   author: "J. R. R. Tolkien",
+  //   comment: "Soooo long, but worth it."
+  // }]
+const length = books.length;
 
-const length = library.length;
 
-
-  res.render('myLibrary', {library: library, length: length}); //if not show the login handlebar
+  res.render('myLibrary', {library: books, length: length}); //if not show the login handlebar
+} catch (err) {
+  res.status(500).json(err);
+}
 });
 
 //-----------handled elsewhere
