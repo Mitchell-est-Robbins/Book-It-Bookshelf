@@ -88,7 +88,7 @@ const withAuth = require('../utils/auth');
 //==================================================================
 router.get('/', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/login'); //----------library?
+    res.redirect('/mylibrary'); //----------library?
     return;
   }
 
