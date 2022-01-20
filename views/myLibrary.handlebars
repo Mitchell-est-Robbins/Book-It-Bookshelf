@@ -1,0 +1,45 @@
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <form >
+            <div>
+                <label>Title:</label>
+                <input id="inputTitle" type="text" name="title"/>
+            </div>
+            <div>
+                <label>Author:</label>
+                <input id="inputAuthor" type="text" name="author"/>
+            </div>    
+            <div>
+                <label>Comments:</label>
+                <input id="inputComment" type="text" name="comments"/>
+            </div>
+            <div>
+                <input id="addBtn" class="btn btn-primary" type="button" value="Add book!"/>
+            </div>
+        </form>                  
+    </div>          
+</div>
+
+
+
+<div>
+{{#if length}}
+  <div class="col-md-6 project-list">
+    <h1>My library:</h1>
+    {{#each library as |book|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4>{{book.title}}</h4>
+        <p>{{book.author}}</p>
+        <p>{{book.comment}}</p>
+      </div>
+      <div class="col-md-4">
+        <button id="dltBtn" class="btn btn-sm btn-danger" data-id="{{book.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
