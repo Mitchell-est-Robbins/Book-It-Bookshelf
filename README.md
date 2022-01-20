@@ -3,11 +3,11 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-
+---
 
 ## Table of Contents:
   1. [Description](#description)  
-  2. [Screenshot](#screenshot)
+  2. [Screenshots](#screenshots)
   3. [License](#license) 
   4. [Contributors](#contributors)
   5. [Deployed](#deployed)
@@ -15,30 +15,33 @@
 
 ## Description
 
-```
+
 This application allows users to generate an online library of books they personally own. With a paired note-taking function for added functionality such as: book location, edition, cover art, or pages read.
-```
----
+
+
 
 ## License
 MIT
 
----
 
-## Screenshot
+
+## Screenshots
 Landing page of the site
+
 ![Landingpage](pictures/Home.png)
 
 </br>
 
 Entry page (there is no verification of email. Login/logout is functional and user specific)
+
 ![Signup](pictures/Signup.png)
 
 </br>
 
 Your personal library (For best experience refresh the page often)
+
 ![Library](pictures/Library.png)
----
+
 
 ## Contributors
 
@@ -56,13 +59,13 @@ Vincent Sullivan |  [vlsullivanhou@gmail.com](mailto:vlsullivanhou@gmail.com)
 
 
 
----
+
 
 
 ## Deployed 
 ## [HERE](https://bookit-bookshelf.herokuapp.com/)
 
----
+
 
 ## Other
 
