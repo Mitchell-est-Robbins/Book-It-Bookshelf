@@ -16,7 +16,7 @@
 ## Description
 
 ```
-This application allows users to generate an online library of books they personally own. With a paired note-taking function for added functionality such as: book location, edition, cover art,  or pages read.
+This application allows users to generate an online library of books they personally own. With a paired note-taking function for added functionality such as: book location, edition, cover art, or pages read.
 ```
 ---
 
@@ -26,11 +26,17 @@ MIT
 ---
 
 ## Screenshot
+Landing page of the site
+![Landingpage](pictures/Home.png)
 
-![Homepage](pictures/Home.png)
+</br>
 
+Entry page (there is no verification of email. Login/logout is functional and user specific)
 ![Signup](pictures/Signup.png)
 
+</br>
+
+Your personal library (For best experience refresh the page often)
 ![Library](pictures/Library.png)
 ---
 
